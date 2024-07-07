@@ -39,6 +39,7 @@ public class MultiSkillerLiteGraphicsContext extends ScriptGraphicsContext {
                 this.script.xpGained = 0;
                 this.script.setBotState(MultiSkillerLite.BotState.SetInitialInventory );
             }
+            ImGui.Text("***********************************");
 
             if (ImGui.Button("Cut Gems")) {
                 this.script.println("Gems");
@@ -47,8 +48,10 @@ public class MultiSkillerLiteGraphicsContext extends ScriptGraphicsContext {
                 this.script.startTime = System.currentTimeMillis();
 
             }
+            ImGui.Text("***********************************");
 
-            ImGui.Combo("Hotspots", TarMaker.pickedTar, TarMaker.tarsOptions);
+            ImGui.Text("Select the Tar you want to make");
+            ImGui.Combo("Herbs", TarMaker.pickedTar, TarMaker.tarsOptions);
             if (ImGui.Button("Start Making Tar")) {
                 this.script.println("Making Tar");
                 this.script.xpGained = 0;
@@ -56,6 +59,7 @@ public class MultiSkillerLiteGraphicsContext extends ScriptGraphicsContext {
                 this.script.startTime = System.currentTimeMillis();
 
             }
+            ImGui.Text("***********************************");
 
 
             if (ImGui.Button("Stop")) {

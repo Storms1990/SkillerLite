@@ -72,8 +72,26 @@ public class PotionMix {
     public static void cleanherbs()
     {
         ScriptConsole.println("Selecting herb");
-        MiniMenu.interact(ComponentAction.COMPONENT.getType(),1,0,96534533);
-        Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
+        MultiSkillerLite.inventory = Backpack.getItems();
+        boolean haveHerbs = false;
+        for( Item item : MultiSkillerLite.inventory){
+            if (item != null) {
+                if (item.getName().contains("Grimy")) {
+                    haveHerbs = true;
+                    break;
+                }
+            }else{
+                ScriptConsole.println("failed to find herbs Nullcheck");
+                MultiSkillerLite.botState = MultiSkillerLite.BotState.Idle;
+            }
+        }
+        if (haveHerbs) {
+            MiniMenu.interact(ComponentAction.COMPONENT.getType(), 1, 0, 96534533);
+            Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
+        }else{
+            ScriptConsole.println("No herbs Found going idle");
+            MultiSkillerLite.botState = MultiSkillerLite.BotState.Idle;
+        }
         if (Interfaces.isOpen(1370))
         {
             MiniMenu.interact(ComponentAction.DIALOGUE.getType(),0,-1,89784350);

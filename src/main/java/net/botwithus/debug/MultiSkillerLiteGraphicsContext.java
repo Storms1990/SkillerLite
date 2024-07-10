@@ -24,23 +24,23 @@ public class MultiSkillerLiteGraphicsContext extends ScriptGraphicsContext {
 
             this.script.setLogout(ImGui.Checkbox("Logout when done?",this.script.logoutBool()));
             ImGui.SameLine();
-            ImGui.Text("Logout Status: " + this.script.Logout);
+            ImGui.Text("Logout Status: " + MultiSkillerLite.Logout);
             if (ImGui.Button("Stop Script")) {
                 this.script.setBotState(MultiSkillerLite.BotState.Idle);
             }
             ImGui.Text("Time since start: "+ this.script.getElapsedTime());
             ImGui.Text("XP Gained : "+ this.script.xpGained);
             ImGui.Text("***********************************");
-            ImGui.Text("***********************************");
 
-            ImGui.Text("Important Note: all these scripts function off of havine a bank preset already loaded");
+            ImGui.Text("Important Note: all these scripts function off of having a bank preset already loaded");
             ImGui.Text("So make sure your Preset is loaded!!!!");
             ImGui.Text("Will use Portable or Well if nearby");
+
             ImGui.Text("*********** Potion Mixer **************");
             ImGui.Text("Important Note: Make sure you START the script with first batch of ingredients already in Backpack.");
             ImGui.Text("Takes a snapshot on start and will run until no longer matches snapshot");
             ImGui.Text("Will only make certain potions without portable well nearby");
-            ImGui.Text("*********** Potion Mixer ****************");
+
             if (ImGui.Button("Start Making Potions")) {
                 this.script.println(" Making Potions");
                 this.script.startTime = System.currentTimeMillis();
@@ -59,7 +59,7 @@ public class MultiSkillerLiteGraphicsContext extends ScriptGraphicsContext {
             }
             ImGui.Text("*********** Gem Cutter ****************");
             ImGui.Text("Will prioritize using portables");
-            if (ImGui.Button("Start Cuting Gems")) {
+            if (ImGui.Button("Start Cutting Gems")) {
                 this.script.println("Cutting Gems");
                 this.script.xpGained = 0;
                 MultiSkillerLite.returnState = MultiSkillerLite.BotState.CuttingGems;
@@ -74,8 +74,8 @@ public class MultiSkillerLiteGraphicsContext extends ScriptGraphicsContext {
             if (ImGui.Button("Start making bars")) {
                 this.script.println("Gold maker");
                 this.script.xpGained = 0;
-                MultiSkillerLite.returnState = MultiSkillerLite.BotState.Goldmaker;
-                this.script.setBotState(MultiSkillerLite.BotState.Goldmaker);
+                MultiSkillerLite.returnState = MultiSkillerLite.BotState.GoldMaker;
+                this.script.setBotState(MultiSkillerLite.BotState.GoldMaker);
                 this.script.startTime = System.currentTimeMillis();
 
             }

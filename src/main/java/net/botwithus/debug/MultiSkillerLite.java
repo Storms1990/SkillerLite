@@ -10,7 +10,6 @@ import net.botwithus.rs3.game.hud.interfaces.Interfaces;
 import net.botwithus.rs3.game.login.LoginManager;
 import net.botwithus.rs3.game.minimenu.MiniMenu;
 import net.botwithus.rs3.game.minimenu.actions.ComponentAction;
-import net.botwithus.rs3.game.movement.Movement;
 import net.botwithus.rs3.game.queries.builders.characters.NpcQuery;
 import net.botwithus.rs3.game.queries.builders.components.ComponentQuery;
 import net.botwithus.rs3.game.queries.builders.objects.SceneObjectQuery;
@@ -53,9 +52,10 @@ public class MultiSkillerLite extends LoopingScript {
         CleanHerb,
         MakeTar,
         Cooking,
-        Goldmaker,
+        GoldMaker,
         StationCheck,
-        CraftingDelay
+        CraftingDelay,
+        Banking
     }
 
 
@@ -98,7 +98,6 @@ public class MultiSkillerLite extends LoopingScript {
 
     @Override
     public void onLoop() {
-        println("**************************");
 
         this.loopDelay = 550;
         if (!boot())
@@ -108,11 +107,11 @@ public class MultiSkillerLite extends LoopingScript {
 
         switch (botState) {
             case Idle -> {
-                delay(20000,30000);
+                delay(2000,3000);
             }
 
             case CuttingGems -> {
-                bankPreset();
+                //bankPreset();
                 Gemcutter.cutGems();
             }
 
@@ -122,41 +121,39 @@ public class MultiSkillerLite extends LoopingScript {
             }
 
             case MixPotions -> {
-                bankPreset();
+               // bankPreset();
                 PotionMix.mixPotions();
             }
             case CleanHerb ->{
-                bankPreset();
+                //bankPreset();
                 PotionMix.cleanherbs();
 
             }
 
             case MakeTar -> {
-                bankPreset();
+               // bankPreset();
                 TarMaker.makeTar();
             }
 
             case Cooking ->{
-                bankPreset();
+               // bankPreset();
                 Cooker.handleCooking();
             }
 
-            case Goldmaker ->{
-                if (!familyCrestCheck)
-                {
-                    bankPreset();
-                }
+            case GoldMaker ->{
+
                 Goldmaker.makeGold();
             }
 
             case CraftingDelay ->{
                 if (Interfaces.isOpen(1251))
                 {
+                    println("Waiting for crafting to finish");
                     delay();
                 }
                 if (!Interfaces.isOpen(1251))
                 {
-                    setBotState(returnState);
+                    setBotState(BotState.Banking);
                 }
             }
 
@@ -173,10 +170,19 @@ public class MultiSkillerLite extends LoopingScript {
 
             }
 
+            case Banking-> {
+                if (!familyCrestCheck)
+                {
+                    bankPreset();
+                }
+            }
+
+
+
         }
 
     }
-    private void bankPreset()///// Gems
+    private void bankPreset()
     {
         SceneObject bank = SceneObjectQuery.newQuery().name("Bank chest").results().nearestTo(player);
         if (bank == null)
@@ -184,9 +190,10 @@ public class MultiSkillerLite extends LoopingScript {
             println("Using Banker");
             Npc bankNpc = NpcQuery.newQuery().option("Load Last Preset from").results().nearestTo(player);
             if (bankNpc == null){
-                println("failed to find bank Please move to banking area");
+                println("failed to find bank. Please move to banking area");
+                setBotState(BotState.Idle);
             }
-            delay();
+            assert bankNpc != null;
             bankNpc.interact("Load Last Preset from");
             delay();
         }
@@ -194,13 +201,18 @@ public class MultiSkillerLite extends LoopingScript {
             println("Using Bank Chest");
             bank.interact("Load Last Preset from");
             delay(1000,1500);
-            while(player.isMoving())
+
+            if (player.isMoving())
             {
-                delay(1000,1500);
+                Execution.delayUntil( 15000, ()-> !player.isMoving());
             }
         }
         delay();
         handleLogout();
+        if ((Client.getGameState() == Client.GameState.LOGGED_IN))
+        {
+            setBotState(returnState);
+        }
     }
 
 
@@ -209,7 +221,7 @@ public class MultiSkillerLite extends LoopingScript {
         switch (botState) {
 
             case MixPotions -> {
-                if(Logout && !checkForInventory(Backpack.getItems()))
+                if(Logout && doesInventoryMatch(Backpack.getItems()))
                 {
                     LoginManager.setAutoLogin(false);
                     Logout();
@@ -217,7 +229,7 @@ public class MultiSkillerLite extends LoopingScript {
                     botState = BotState.Idle;
                     ScriptConsole.println("Finished");
 
-                } else if (!checkForInventory(Backpack.getItems())) {
+                } else if (doesInventoryMatch(Backpack.getItems())) {
                     botState = BotState.Idle;
                    ScriptConsole.println("Finished");
                 }
@@ -254,9 +266,10 @@ public class MultiSkillerLite extends LoopingScript {
                 }
             }
 
-            case Goldmaker -> {
+            case GoldMaker -> {
 
-                if(!familyCrestCheck){
+                if(!familyCrestCheck)
+                {
                     if(Logout && Backpack.isEmpty())
                     {
                         LoginManager.setAutoLogin(false);
@@ -283,9 +296,9 @@ public class MultiSkillerLite extends LoopingScript {
         botState = BotState.MixPotions;
     }
 
-    private static boolean checkForInventory(List<Item> input)
+    private static boolean doesInventoryMatch(List<Item> input)
     {
-        return inventory.equals(input);
+        return !inventory.equals(input);
     }
 
     public static void Logout() {

@@ -21,7 +21,12 @@ public class Gemcutter {
         boolean stationCheck = craftingStation.isEmpty();
         if (!stationCheck) {
             SceneObject station = craftingStation.first();
+            if(station!= null){
             ScriptConsole.println("Using Station: " + station.interact("Cut Gems"));
+            }else{
+                ScriptConsole.println("No station found");
+                return;
+            }
             Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
 
             delay();
@@ -29,7 +34,8 @@ public class Gemcutter {
             {
                 MiniMenu.interact(ComponentAction.DIALOGUE.getType(), 0, -1, 89784350);
             }
-            delay(1500,2200);}
+            delay(1500,2200);
+        }
         else{
             ScriptConsole.println("No Crafter Found");
             Backpack.interact(1, "Craft");

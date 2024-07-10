@@ -19,58 +19,58 @@ public class Goldmaker {
 
 
 
-    public static void makeGold(){
+    public static void makeGold() {
         EntityResultSet<SceneObject> Furnaces = SceneObjectQuery.newQuery().name("Furnace").option("Smelt").results();
-        if (Furnaces.isEmpty()){
+        if (Furnaces.isEmpty()) {
             ScriptConsole.println("no Furnace found move to area with furnace and bank");
-            MultiSkillerLite.botState= MultiSkillerLite.BotState.Idle;
+            MultiSkillerLite.botState = MultiSkillerLite.BotState.Idle;
         }
         SceneObject Furnace = Furnaces.nearestTo(MultiSkillerLite.player);
         delay();
+        boolean success;
+        if (Furnace != null) {
+            success = Furnace.interact("Smelt");
+        } else {
+            ScriptConsole.println("no Furnace error.");
+            return;
+        }
 
-        boolean success = Furnace.interact("Smelt");
-        if (!success)
-        {
+        if (!success) {
             success = Furnace.interact("Smelt");
             delay();
-            if (!success)
-            {
-                ScriptConsole.println("Failed to interact with Smelter. Error");
+            if (!success) {
+                ScriptConsole.println("Failed to interact with Furnace. Error");
             }
         }
         Execution.delayUntil(15000, () -> Interfaces.isOpen(37));
 
-        if(MultiSkillerLite.familyCrestCheck){
-            if(Backpack.contains("Gold bar")) {
+        if (MultiSkillerLite.familyCrestCheck) {
+            if (Backpack.contains("Gold bar")) {
                 ScriptConsole.println("depositing gold");
                 MiniMenu.interact(ComponentAction.COMPONENT.getType(), 1, -1, 2424999);
                 delay();
             }
         }
 
-        if (VarManager.getVarValue(VarDomainType.PLAYER, 8333) == 2357){
+        if (VarManager.getVarValue(VarDomainType.PLAYER, 8333) == 2357) {
             ScriptConsole.println("gold bar already selected ");
-        }
-        else{
+        } else {
             MiniMenu.interact(ComponentAction.COMPONENT.getType(), 1, 5, 2424957);
         }
         delay();
         if (VarManager.getVarValue(VarDomainType.PLAYER, 8336) > 0) {
             MiniMenu.interact(ComponentAction.COMPONENT.getType(), 1, -1, 2424995);
             ScriptConsole.println("interacting with beginproject");
-            Execution.delayUntil(3000, ()-> Interfaces.isOpen(1251));
-        }
-        else {
+            Execution.delayUntil(3000, () -> Interfaces.isOpen(1251));
+        } else {
             ScriptConsole.println("we have run out of matierals to make bars");
-            MultiSkillerLite.botState= MultiSkillerLite.BotState.Idle;
+            MultiSkillerLite.botState = MultiSkillerLite.BotState.Idle;
         }
 
         delay();
-        if (Interfaces.isOpen(1251))
-        {
+        if (Interfaces.isOpen(1251)) {
             MultiSkillerLite.botState = MultiSkillerLite.BotState.CraftingDelay;
         }
-
 
 
     }

@@ -5,40 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b1457f5-65e8-4d55-8f80-adb1ea7f124d" name="Changes" comment="First">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Cooker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Goldmaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/Gemcutter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/Gemcutter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite$BotState.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite$BotState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLiteGraphicsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLiteGraphicsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/PotionMix.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/PotionMix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/TarMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/TarMaker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/ArcheologyTest-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/expanded.lock" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/.cache/expanded/expanded.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MultiSkillerLite$1.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MultiSkillerLite$BotState.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MultiSkillerLite.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MultiSkillerLiteGraphicsContext.class.uniqueId3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Cooker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Cooker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Gemcutter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Gemcutter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Goldmaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Goldmaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLiteGraphicsContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLiteGraphicsContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/PotionMix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/PotionMix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/TarMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/TarMaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,26 +88,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build Herb&amp;Gem.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Herb&amp;Gem [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MultiSkillerLite [assemble].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MultiSkillerLite [buildDependents].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MultiSkillerLite [buildNeeded].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MultiSkillerLite [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/moosa/IdeaProjects/MultiSkillerPro&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build Herb&Gem.executor": "Run",
+    "Gradle.Herb&Gem [build].executor": "Run",
+    "Gradle.MultiSkillerLite [assemble].executor": "Run",
+    "Gradle.MultiSkillerLite [buildDependents].executor": "Run",
+    "Gradle.MultiSkillerLite [buildNeeded].executor": "Run",
+    "Gradle.MultiSkillerLite [clean].executor": "Run",
+    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/moosa/IdeaProjects/MultiSkillerLite",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="net.botwithus.debug" />

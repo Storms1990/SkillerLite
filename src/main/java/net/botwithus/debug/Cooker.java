@@ -21,35 +21,41 @@ public class Cooker {
         boolean stationCheck = Ranges.isEmpty();
         boolean rangeCheck = portable.isEmpty();
         SceneObject range;
-
-        if (!rangeCheck)
-        {
-            range = portable.nearestTo(MultiSkillerLite.player);
-            ScriptConsole.println("Found Range");
-            delay();
-            ScriptConsole.println(range.interact("Cook"));
-            Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
-            if (Interfaces.isOpen(1370)) {
-                delay();
-                MiniMenu.interact(ComponentAction.DIALOGUE.getType(), 0, -1, 89784350);
-            }
-        }
-        else{
-            range = Ranges.nearestTo(MultiSkillerLite.player);
-            ScriptConsole.println(range.interact("Cook-at"));
-            delay();
-            if (Interfaces.isOpen(1370)) {
-                delay();
-                MiniMenu.interact(ComponentAction.DIALOGUE.getType(), 0, -1, 89784350);
-            }
-        }
         if (rangeCheck && stationCheck) {
             ScriptConsole.println("please move to Fort cooking area");
             MultiSkillerLite.botState = MultiSkillerLite.BotState.Idle;
         }
+
+        if (!rangeCheck){
+            range = portable.nearestTo(MultiSkillerLite.player);
+            ScriptConsole.println("Found Range");
+            delay();
+            if(range != null) {
+                ScriptConsole.println(range.interact("Cook"));
+            }else{
+                ScriptConsole.println("no range error.");
+                return;
+            }
+
+            Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
+        }
+        else{
+            range = Ranges.nearestTo(MultiSkillerLite.player);
+            if(range != null) {
+                ScriptConsole.println(range.interact("Cook"));
+            }else{
+                ScriptConsole.println("no range error.");
+                return;
+            }
+            delay();
+        }
+        if (Interfaces.isOpen(1370)) {
+            delay();
+            MiniMenu.interact(ComponentAction.DIALOGUE.getType(), 0, -1, 89784350);
+        }
+
         Execution.delayUntil(5000, ()-> Interfaces.isOpen(1251));
-        if (Interfaces.isOpen(1251))
-        {
+        if (Interfaces.isOpen(1251)){
             MultiSkillerLite.botState = MultiSkillerLite.BotState.CraftingDelay;
         }
 

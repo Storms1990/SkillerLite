@@ -30,22 +30,25 @@ public class PotionMix {
 
         if (!wellCheck) {
             SceneObject Well = wells.first();
-            ScriptConsole.println("Mixing is: " + Well.interact("Mix Potions"));
-            Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
-            if (!Interfaces.isOpen(1370))
-            {
+            if(Well!= null){
                 ScriptConsole.println("Mixing is: " + Well.interact("Mix Potions"));
-                Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
+            }else{
+                ScriptConsole.println("No station found ERROR");
+                return;
             }
+            Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
+            if (Interfaces.isOpen(1370))
+            {
             delay();
             MiniMenu.interact(ComponentAction.DIALOGUE.getType(),0,-1,89784350);
             delay(1500,2200);
+            }
 
         }
-        else{ ///will not make overloads and other combo potions without protable, will try finding all the ingredients and using on each other.
+        else{ ///will not make overloads and other combo potions without portable, will try finding all the ingredients and using on each other.
 
             ScriptConsole.println("Mixing from inventory");
-            Boolean success = Backpack.interact(getPotionSlot(), "Mix");
+            boolean success = Backpack.interact(getPotionSlot(), "Mix");
             if (!success)
             {
                 ScriptConsole.println("could not mix from inventory waiting for station");
@@ -85,14 +88,16 @@ public class PotionMix {
 
     }
 
-    private static int getPotionSlot(){
+    private static int getPotionSlot()
+    {
         int slotInt= 0;
         for (Item item : MultiSkillerLite.inventory)
         {
-            if (item.getName().contains("potion"))
-            {
-                slotInt= item.getSlot();
-                break;
+            if (item != null) {
+                if (item.getName().contains("potion")) {
+                    slotInt = item.getSlot();
+                    break;
+                }
             }
         }
 

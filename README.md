@@ -8,4 +8,4 @@ Gold bar maker has support for with and without family crest completed.
 
 Cooker currently only works in Fort kitchen.
 
-Special thanks to Sadness and theSnow for all their help.
+Special thanks to Sadness and theSn0w for all their help.

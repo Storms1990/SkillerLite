@@ -32,7 +32,7 @@ public class TarMaker {
         tar = Backpack.getItem("Swamp tar");
         tarCount = tar.getStackSize();
         delay();
-        secondary = InventoryItemQuery.newQuery().name(("Making " + pickedTarName)).results().first();
+        secondary = InventoryItemQuery.newQuery().name(("Clean " + pickedTarName)).results().first();
         delay();
         if (tar == null || secondary == null)
         {

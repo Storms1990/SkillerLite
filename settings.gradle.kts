@@ -5,4 +5,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "HerbAndGem"
+rootProject.name = "MultiSkillerLite"

@@ -6,12 +6,15 @@ import net.botwithus.rs3.events.impl.SkillUpdateEvent;
 import net.botwithus.rs3.game.Client;
 import net.botwithus.rs3.game.Item;
 import net.botwithus.rs3.game.hud.interfaces.Component;
+import net.botwithus.rs3.game.hud.interfaces.Interfaces;
 import net.botwithus.rs3.game.login.LoginManager;
 import net.botwithus.rs3.game.minimenu.MiniMenu;
 import net.botwithus.rs3.game.minimenu.actions.ComponentAction;
+import net.botwithus.rs3.game.movement.Movement;
 import net.botwithus.rs3.game.queries.builders.characters.NpcQuery;
 import net.botwithus.rs3.game.queries.builders.components.ComponentQuery;
 import net.botwithus.rs3.game.queries.builders.objects.SceneObjectQuery;
+import net.botwithus.rs3.game.queries.results.EntityResultSet;
 import net.botwithus.rs3.game.scene.entities.characters.npc.Npc;
 import net.botwithus.rs3.game.scene.entities.characters.player.LocalPlayer;
 import net.botwithus.rs3.game.scene.entities.object.SceneObject;
@@ -29,14 +32,17 @@ import java.util.concurrent.TimeUnit;
 
 public class MultiSkillerLite extends LoopingScript {
 
-    private LocalPlayer player;
+    public static LocalPlayer player;
     public static BotState botState = BotState.Idle;
     private static Random random = new Random();
     public static boolean Logout = false;
-    private static List<Item> inventory;
+    public static List<Item> inventory;
     long startTime;
     public int xpGained = 0;
-    private static Npc bankNpc;
+    public static boolean usePortableRange = false;
+    public static boolean familyCrestCheck = false;
+    public static BotState returnState = BotState.Idle;
+    private static int goIdle=0;
 
 
     public enum BotState{
@@ -44,7 +50,12 @@ public class MultiSkillerLite extends LoopingScript {
         CuttingGems,
         SetInitialInventory ,
         MixPotions,
+        CleanHerb,
         MakeTar,
+        Cooking,
+        Goldmaker,
+        StationCheck,
+        CraftingDelay
     }
 
 
@@ -72,6 +83,11 @@ public class MultiSkillerLite extends LoopingScript {
                     xpGained += skillUpdateEvent.getExperience() - skillUpdateEvent.getOldExperience();
                 }
             }
+            if (skillUpdateEvent.getId() == Skills.COOKING.getId()) {
+                if (skillUpdateEvent.getExperience() - skillUpdateEvent.getOldExperience() > 0) {
+                    xpGained += skillUpdateEvent.getExperience() - skillUpdateEvent.getOldExperience();
+                }
+            }
 
         });
 
@@ -92,7 +108,7 @@ public class MultiSkillerLite extends LoopingScript {
 
         switch (botState) {
             case Idle -> {
-                delay(2000,5000);
+                delay(20000,30000);
             }
 
             case CuttingGems -> {
@@ -107,7 +123,12 @@ public class MultiSkillerLite extends LoopingScript {
 
             case MixPotions -> {
                 bankPreset();
-               PotionMix.mixPotions();
+                PotionMix.mixPotions();
+            }
+            case CleanHerb ->{
+                bankPreset();
+                PotionMix.cleanherbs();
+
             }
 
             case MakeTar -> {
@@ -115,65 +136,74 @@ public class MultiSkillerLite extends LoopingScript {
                 TarMaker.makeTar();
             }
 
+            case Cooking ->{
+                bankPreset();
+                Cooker.handleCooking();
+            }
+
+            case Goldmaker ->{
+                if (!familyCrestCheck)
+                {
+                    bankPreset();
+                }
+                Goldmaker.makeGold();
+            }
+
+            case CraftingDelay ->{
+                if (Interfaces.isOpen(1251))
+                {
+                    delay();
+                }
+                if (!Interfaces.isOpen(1251))
+                {
+                    setBotState(returnState);
+                }
+            }
+
+            case StationCheck ->
+            {// might make into switch later
+
+                if(returnState == BotState.MixPotions){// this needs to be tested. in case they are trying to make combo potions without wells wait for well to apear.
+                    EntityResultSet<SceneObject> wells = SceneObjectQuery.newQuery().name("Portable well").option("Mix Potions").results();
+                    if (!wells.isEmpty()){
+                        botState = returnState;
+                    }
+                    delay(5000,6000);
+                }
+
+            }
+
         }
 
     }
     private void bankPreset()///// Gems
     {
-        SceneObject Bank = SceneObjectQuery.newQuery().name("Bank chest").results().nearestTo(player);
-        if (Bank == null)
+        SceneObject bank = SceneObjectQuery.newQuery().name("Bank chest").results().nearestTo(player);
+        if (bank == null)
         {
-            println("failed to find bank chest, looking for banker");
-            bankNpc = NpcQuery.newQuery().option("Load Last Preset from").results().nearestTo(player);
+            println("Using Banker");
+            Npc bankNpc = NpcQuery.newQuery().option("Load Last Preset from").results().nearestTo(player);
             if (bankNpc == null){
                 println("failed to find bank Please move to banking area");
             }
             delay();
             bankNpc.interact("Load Last Preset from");
+            delay();
         }
         else {
-            Boolean bankchest = Bank.interact("Load Last Preset from");
+            println("Using Bank Chest");
+            bank.interact("Load Last Preset from");
+            delay(1000,1500);
+            while(player.isMoving())
+            {
+                delay(1000,1500);
+            }
         }
         delay();
-
-        delay(2000, 3500);
         handleLogout();
     }
 
-    private void bankPreseta(LocalPlayer p)///// Gems
-    {
-        SceneObject Bank = SceneObjectQuery.newQuery().name("Bank chest").results().nearestTo(player);
-        println("Banking is: "+ Bank.interact("Load Last Preset from"));
-        delay(2000,3500);
 
-        if(Logout && Backpack.isEmpty())
-        {
-            LoginManager.setAutoLogin(false);
-            Logout();
-            delay(4000,5000);
-            setBotState(BotState.Idle);
-
-        }
-
-    }
-    private void bankPresetb(LocalPlayer p) ///// potions
-    {
-        SceneObject Bank = SceneObjectQuery.newQuery().name("Bank chest").results().nearestTo(player);
-        println("Banking is: "+ Bank.interact("Load Last Preset from"));
-        delay(2000,3500);
-
-        if(Logout && !checkForInventory(Backpack.getItems()))
-        {
-            LoginManager.setAutoLogin(false);
-            Logout();
-            delay(4000,5000);
-            setBotState(BotState.Idle);
-
-        } else if (!checkForInventory(Backpack.getItems())) {
-            setBotState(BotState.Idle);
-            println("Finished");
-        }
-    }
     public static void handleLogout()
     {
         switch (botState) {
@@ -193,7 +223,7 @@ public class MultiSkillerLite extends LoopingScript {
                 }
             }
 
-            case CuttingGems -> {
+            case CuttingGems, Cooking, CleanHerb -> {
                 if(Logout && Backpack.isEmpty())
                 {
                     LoginManager.setAutoLogin(false);
@@ -224,6 +254,24 @@ public class MultiSkillerLite extends LoopingScript {
                 }
             }
 
+            case Goldmaker -> {
+
+                if(!familyCrestCheck){
+                    if(Logout && Backpack.isEmpty())
+                    {
+                        LoginManager.setAutoLogin(false);
+                        Logout();
+                        delay(4000,5000);
+                        botState = BotState.Idle;
+                    }
+                    else if( Backpack.isEmpty()){
+                        botState = BotState.Idle;
+                    }
+                }
+
+
+            }
+
 
         }
     }
@@ -231,6 +279,7 @@ public class MultiSkillerLite extends LoopingScript {
 
     public static void setInitialInventory(){
         inventory = Backpack.getItems();
+        ScriptConsole.println("set inventory");
         botState = BotState.MixPotions;
     }
 
@@ -259,12 +308,28 @@ public class MultiSkillerLite extends LoopingScript {
         return Logout;
     }
 
+    public void setPortableRange( boolean input)
+    {
+        usePortableRange = input;
+    }
+    public boolean portableRangeBool() {
+        return usePortableRange;
+    }
+
+    public void setFamilyCrestCheck( boolean input)
+    {
+        familyCrestCheck = input;
+    }
+    public boolean FamilyCrestCheckBool() {
+        return familyCrestCheck;
+    }
+
     public BotState getBotState() {
         return botState;
     }
 
     public void setBotState(BotState botState) {
-        this.botState = botState;
+        MultiSkillerLite.botState = botState;
     }
     public String getElapsedTime(){
         long now = System.currentTimeMillis();
@@ -286,7 +351,7 @@ public class MultiSkillerLite extends LoopingScript {
     }
 
     private void delay() {
-        Execution.delay(random.nextLong(200, 1300));
+        Execution.delay(random.nextLong(800, 1300));
     }
     private static void delay(long lhs, long rhs) {
         Execution.delay(random.nextLong(lhs, rhs));

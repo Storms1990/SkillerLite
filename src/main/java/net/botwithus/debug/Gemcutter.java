@@ -18,20 +18,17 @@ public class Gemcutter {
     public static void cutGems() {
 
         EntityResultSet<SceneObject> craftingStation = SceneObjectQuery.newQuery().name("Portable crafter").option("Cut Gems").results();
-        boolean StationCheck = craftingStation.isEmpty();
-        if (!StationCheck) {
+        boolean stationCheck = craftingStation.isEmpty();
+        if (!stationCheck) {
             SceneObject station = craftingStation.first();
             ScriptConsole.println("Using Station: " + station.interact("Cut Gems"));
             Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
-            if (!Interfaces.isOpen(1370))
-            {
-                ScriptConsole.println("Cutting is: " + station.interact("Cut Gems"));
-                Execution.delayUntil(3000, () -> Interfaces.isOpen(1370));
 
-            }
             delay();
-            MiniMenu.interact(ComponentAction.DIALOGUE.getType(),0,-1,89784350);
-
+            if (Interfaces.isOpen(1370))
+            {
+                MiniMenu.interact(ComponentAction.DIALOGUE.getType(), 0, -1, 89784350);
+            }
             delay(1500,2200);}
         else{
             ScriptConsole.println("No Crafter Found");
@@ -42,16 +39,16 @@ public class Gemcutter {
             delay(1500,2200);
             ScriptConsole.println("Crafting from inventory");
         }
-        while (Interfaces.isOpen(1251))
+        if (Interfaces.isOpen(1251))
         {
-            delay(1000,2500);
+            MultiSkillerLite.botState = MultiSkillerLite.BotState.CraftingDelay;
         }
-        ScriptConsole.println("finished");
+
 
 
     }
     private static void delay() {
-        Execution.delay(random.nextLong(300, 1200));
+        Execution.delay(random.nextLong(800, 1200));
     }
     private static void delay(long lhs, long rhs) {
         Execution.delay(random.nextLong(lhs, rhs));

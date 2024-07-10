@@ -4,8 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b1457f5-65e8-4d55-8f80-adb1ea7f124d" name="Changes" comment="fixed logout.">
+    <list default="true" id="8b1457f5-65e8-4d55-8f80-adb1ea7f124d" name="Changes" comment="First">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Cooker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Goldmaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/Gemcutter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/Gemcutter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite$BotState.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite$BotState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLiteGraphicsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/MultiSkillerLiteGraphicsContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/PotionMix.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/PotionMix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/TarMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/net/botwithus/debug/TarMaker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/ArcheologyTest-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/expanded.lock" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/.cache/expanded/expanded.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MultiSkillerLite$1.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MultiSkillerLite$BotState.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MultiSkillerLite.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MultiSkillerLiteGraphicsContext.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Gemcutter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/Gemcutter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLiteGraphicsContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLiteGraphicsContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/PotionMix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/PotionMix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/TarMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/TarMaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,16 +61,16 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="HerbAndGem" type="f1a62948:ProjectNode" />
+                <item name="MultiSkillerLite" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="HerbAndGem" type="f1a62948:ProjectNode" />
+                <item name="MultiSkillerLite" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="HerbAndGem" type="f1a62948:ProjectNode" />
+                <item name="MultiSkillerLite" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
@@ -71,15 +104,19 @@
     &quot;Gradle.Build Herb&amp;Gem.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Herb&amp;Gem [build].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.MultiSkillerLite [assemble].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MultiSkillerLite [buildDependents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MultiSkillerLite [buildNeeded].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MultiSkillerLite [clean].executor&quot;: &quot;Run&quot;,
     &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/moosa/IdeaProjects/Archeology&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/moosa/IdeaProjects/MultiSkillerPro&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -132,23 +169,79 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="MultiSkillerLite" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="MultiSkillerLite [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildDependents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="MultiSkillerLite" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="MultiSkillerLite [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildNeeded" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MultiSkillerLite [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Herb&amp;Gem [build]" />
+        <item itemvalue="Gradle.MultiSkillerLite [clean]" />
         <item itemvalue="Gradle.MultiSkillerLite [assemble]" />
+        <item itemvalue="Gradle.MultiSkillerLite [buildNeeded]" />
+        <item itemvalue="Gradle.MultiSkillerLite [buildDependents]" />
       </list>
     </recent_temporary>
   </component>
@@ -169,7 +262,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720326785754</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First">
+      <option name="closed" value="true" />
+      <created>1720335855368</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720335855368</updated>
+    </task>
+    <task id="LOCAL-00003" summary="First">
+      <option name="closed" value="true" />
+      <created>1720335990658</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720335990658</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,6 +294,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed logout." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed logout." />
+    <MESSAGE value="First" />
+    <option name="LAST_COMMIT_MESSAGE" value="First" />
   </component>
 </project>

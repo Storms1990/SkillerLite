@@ -27,29 +27,20 @@ public class TarMaker {
 
     public static void makeTar()
     {
-        ScriptConsole.println("loading config");
         setTar();
         delay();
-
-        ScriptConsole.println("getting tar");
-//        tar = InventoryItemQuery.newQuery().name("Swamp tar").results().first();
         tar = Backpack.getItem("Swamp tar");
         tarCount = tar.getStackSize();
-
         delay();
-        ScriptConsole.println("getting Herb");
-        secondary = InventoryItemQuery.newQuery().name(("Clean " + pickedTarName)).results().first();
-
+        secondary = InventoryItemQuery.newQuery().name(("Making " + pickedTarName)).results().first();
         delay();
         if (tar == null || secondary == null)
         {
-            ScriptConsole.println("Not able to set Target craft please reload preset");
+            ScriptConsole.println("Not able to craft please reload preset or check settings.");
             delay();
             MultiSkillerLite.botState = MultiSkillerLite.BotState.Idle;
         }
         else{
-            ScriptConsole.println(secondary.getName());
-            ScriptConsole.println(tar.getName());
             delay();
             MiniMenu.interact(SelectableAction.SELECTABLE_COMPONENT.getType(), 0, tar.getSlot(), 96534533);
             delay();
@@ -70,12 +61,11 @@ public class TarMaker {
         {
             MultiSkillerLite.handleLogout();
         }
-        while (Interfaces.isOpen(1251))
+        if (Interfaces.isOpen(1251))
         {
-            delay(1000,1500);
+            MultiSkillerLite.botState = MultiSkillerLite.BotState.CraftingDelay;
         }
-        ScriptConsole.println("finished");
-        delay(1000,5000);
+
 
 
     };
@@ -85,11 +75,11 @@ public class TarMaker {
     {
         pickedTarName = tarsOptions[pickedTar.get()];
 
-        ScriptConsole.println("set tar to: " + pickedTarName);
+        ScriptConsole.println("set tar to make to : " + pickedTarName);
     }
 
     private static void delay() {
-        Execution.delay(random.nextLong(400, 1000));
+        Execution.delay(random.nextLong(800, 1000));
     }
     private static void delay(long lhs, long rhs) {
         Execution.delay(random.nextLong(lhs, rhs));

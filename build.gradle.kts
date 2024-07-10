@@ -50,7 +50,7 @@ val copyJar by tasks.register<Copy>("copyJar") {
 }
 
 tasks.named<Jar>("jar") {
-    archiveBaseName.set("ArcheologyTest")
+    archiveBaseName.set("MultiSkillerLite")
     from({
         configurations["includeInJar"].map { zipTree(it) }
     })

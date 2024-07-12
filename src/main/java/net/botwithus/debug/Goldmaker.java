@@ -55,6 +55,8 @@ public class Goldmaker {
         if (VarManager.getVarValue(VarDomainType.PLAYER, 8333) == 2357) {
             ScriptConsole.println("gold bar already selected ");
         } else {
+            MiniMenu.interact(ComponentAction.COMPONENT.getType(), 1, 33, 2424884);
+            delay();
             MiniMenu.interact(ComponentAction.COMPONENT.getType(), 1, 5, 2424957);
         }
         delay();

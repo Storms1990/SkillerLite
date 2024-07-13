@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b1457f5-65e8-4d55-8f80-adb1ea7f124d" name="Changes" comment="Release Commit">
+    <list default="true" id="8b1457f5-65e8-4d55-8f80-adb1ea7f124d" name="Changes" comment="Fixed Goldmaker not properly selecting gold bar.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720657260423</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed Goldmaker not properly selecting gold bar.">
+      <option name="closed" value="true" />
+      <created>1720748983156</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720748983156</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -297,6 +306,7 @@
     <MESSAGE value="Modified banking and bot stages. Made Changes to GUI" />
     <MESSAGE value="Added herb cleaner inventory check to fix stall outs." />
     <MESSAGE value="Release Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Release Commit" />
+    <MESSAGE value="Fixed Goldmaker not properly selecting gold bar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Goldmaker not properly selecting gold bar." />
   </component>
 </project>

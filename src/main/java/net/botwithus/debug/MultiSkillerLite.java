@@ -171,8 +171,11 @@ public class MultiSkillerLite extends LoopingScript {
             }
 
             case Banking-> {
-                if (!familyCrestCheck)
+                if (familyCrestCheck)
                 {
+                    setBotState(returnState);
+
+                }else {
                     bankPreset();
                 }
             }

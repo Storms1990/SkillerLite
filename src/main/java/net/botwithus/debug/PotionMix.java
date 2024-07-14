@@ -4,12 +4,14 @@ import net.botwithus.api.game.hud.inventories.Backpack;
 import net.botwithus.api.game.hud.inventories.BackpackInventory;
 import net.botwithus.rs3.game.Item;
 import net.botwithus.rs3.game.hud.interfaces.Interfaces;
+import net.botwithus.rs3.game.js5.types.vars.VarDomainType;
 import net.botwithus.rs3.game.minimenu.MiniMenu;
 import net.botwithus.rs3.game.minimenu.actions.ComponentAction;
 import net.botwithus.rs3.game.queries.builders.objects.SceneObjectQuery;
 import net.botwithus.rs3.game.queries.results.EntityResultSet;
 import net.botwithus.rs3.game.scene.entities.characters.player.LocalPlayer;
 import net.botwithus.rs3.game.scene.entities.object.SceneObject;
+import net.botwithus.rs3.game.vars.VarManager;
 import net.botwithus.rs3.script.Execution;
 import net.botwithus.rs3.script.ScriptConsole;
 
@@ -62,6 +64,29 @@ public class PotionMix {
 
 
         }
+        if (Interfaces.isOpen(1251))
+        {
+            MultiSkillerLite.botState = MultiSkillerLite.BotState.CraftingDelay;
+        }
+
+    }
+    public static void makeUnf(){
+        ScriptConsole.println("Making Unfinished");
+        Backpack.interact("Vial of water", "Make");
+        Execution.delayUntil(5000, ()-> Interfaces.isOpen(1370));
+        delay(1000,1200);
+        if (VarManager.getVarValue(VarDomainType.PLAYER, 8846) > 0) {
+            MiniMenu.interact(ComponentAction.DIALOGUE.getType(), 0, -1, 89784350);
+        }else{
+            ScriptConsole.println("ran out of materials");
+            if(MultiSkillerLite.Logout){
+                MultiSkillerLite.Logout();
+            }else{
+                MultiSkillerLite.botState = MultiSkillerLite.BotState.Idle;
+            }
+        }
+        delay(1500,2200);
+
         if (Interfaces.isOpen(1251))
         {
             MultiSkillerLite.botState = MultiSkillerLite.BotState.CraftingDelay;

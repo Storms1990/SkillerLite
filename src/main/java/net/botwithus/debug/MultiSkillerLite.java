@@ -49,6 +49,7 @@ public class MultiSkillerLite extends LoopingScript {
         CuttingGems,
         SetInitialInventory ,
         MixPotions,
+        UnfinishedPotions,
         CleanHerb,
         MakeTar,
         Cooking,
@@ -124,6 +125,11 @@ public class MultiSkillerLite extends LoopingScript {
                // bankPreset();
                 PotionMix.mixPotions();
             }
+
+            case UnfinishedPotions ->{
+                PotionMix.makeUnf();
+            }
+
             case CleanHerb ->{
                 //bankPreset();
                 PotionMix.cleanherbs();
@@ -223,7 +229,7 @@ public class MultiSkillerLite extends LoopingScript {
     {
         switch (botState) {
 
-            case MixPotions -> {
+            case MixPotions, UnfinishedPotions -> {
                 if(Logout && doesInventoryMatch(Backpack.getItems()))
                 {
                     LoginManager.setAutoLogin(false);
@@ -296,7 +302,7 @@ public class MultiSkillerLite extends LoopingScript {
     public static void setInitialInventory(){
         inventory = Backpack.getItems();
         ScriptConsole.println("set inventory");
-        botState = BotState.MixPotions;
+        botState = returnState;
     }
 
     private static boolean doesInventoryMatch(List<Item> input)

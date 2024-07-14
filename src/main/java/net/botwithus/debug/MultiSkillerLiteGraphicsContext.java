@@ -48,6 +48,15 @@ public class MultiSkillerLiteGraphicsContext extends ScriptGraphicsContext {
                 MultiSkillerLite.returnState = MultiSkillerLite.BotState.MixPotions;
                 this.script.setBotState(MultiSkillerLite.BotState.SetInitialInventory);
             }
+            ImGui.Text("*********** Unfinished Potions ****************");
+            ImGui.Text("Makes in inventory, should work at any banker or bank chest");
+            if (ImGui.Button("Make Unfinished ")) {
+                this.script.startTime = System.currentTimeMillis();
+                this.script.xpGained = 0;
+                MultiSkillerLite.returnState = MultiSkillerLite.BotState.UnfinishedPotions;
+                this.script.setBotState(MultiSkillerLite.BotState.SetInitialInventory);
+            }
+
             ImGui.Text("*********** Herb Cleaner ****************");
             ImGui.Text("should work at any banker or bank chest");
             if (ImGui.Button("Clean Herbs")) {

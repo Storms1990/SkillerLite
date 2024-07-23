@@ -89,7 +89,8 @@ public class MultiSkillerLiteGraphicsContext extends ScriptGraphicsContext {
 
             }
             ImGui.Text("*********** Cooker **************");
-            ImGui.Text("Currently only works in Fort will prioritize Using portables");
+            ImGui.Text("Best if used in Fort Kitchen will prioritize Using portables");
+            ImGui.Text("If portable is selected will wait and use already placed portables. WILL NOT place a portable");
             this.script.setPortableRange(ImGui.Checkbox("Use Portable Range?",this.script.portableRangeBool()));
             ImGui.Text("***********************************");
 

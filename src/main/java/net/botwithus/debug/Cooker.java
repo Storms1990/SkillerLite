@@ -22,8 +22,13 @@ public class Cooker {
         boolean rangeCheck = portable.isEmpty();
         SceneObject range;
         if (rangeCheck && stationCheck) {
-            ScriptConsole.println("please move to Fort cooking area");
-            MultiSkillerLite.botState = MultiSkillerLite.BotState.Idle;
+            if(MultiSkillerLite.usePortableRange)
+            {
+                MultiSkillerLite.botState = MultiSkillerLite.BotState.StationCheck;
+            }else {
+                ScriptConsole.println("please move to Fort cooking area");
+                MultiSkillerLite.botState = MultiSkillerLite.BotState.Idle;
+            }
         }
 
         if (!rangeCheck){

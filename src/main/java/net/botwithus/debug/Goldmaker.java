@@ -5,6 +5,7 @@ import net.botwithus.rs3.game.hud.interfaces.Interfaces;
 import net.botwithus.rs3.game.js5.types.vars.VarDomainType;
 import net.botwithus.rs3.game.minimenu.MiniMenu;
 import net.botwithus.rs3.game.minimenu.actions.ComponentAction;
+import net.botwithus.rs3.game.minimenu.actions.ObjectAction;
 import net.botwithus.rs3.game.queries.builders.objects.SceneObjectQuery;
 import net.botwithus.rs3.game.queries.results.EntityResultSet;
 import net.botwithus.rs3.game.scene.entities.object.SceneObject;
@@ -29,14 +30,14 @@ public class Goldmaker {
         delay();
         boolean success;
         if (Furnace != null) {
-            success = Furnace.interact("Smelt");
+            success = Furnace.interact(ObjectAction.OBJECT1);
         } else {
             ScriptConsole.println("no Furnace error.");
             return;
         }
 
         if (!success) {
-            success = Furnace.interact("Smelt");
+            success = Furnace.interact(ObjectAction.OBJECT1);
             delay();
             if (!success) {
                 ScriptConsole.println("Failed to interact with Furnace. Error");

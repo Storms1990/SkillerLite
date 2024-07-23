@@ -173,6 +173,14 @@ public class MultiSkillerLite extends LoopingScript {
                     }
                     delay(5000,6000);
                 }
+                if(returnState == BotState.Cooking)
+                {
+                    EntityResultSet<SceneObject> portable = SceneObjectQuery.newQuery().name("Portable range").option("Cook").results();
+                    if (!portable.isEmpty()){
+                        botState = returnState;
+                    }
+                    delay(5000,6000);
+                }
 
             }
 

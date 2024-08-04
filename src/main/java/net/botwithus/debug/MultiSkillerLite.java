@@ -3,7 +3,9 @@ package net.botwithus.debug;
 
 import net.botwithus.internal.scripts.ScriptDefinition;
 import net.botwithus.rs3.events.impl.SkillUpdateEvent;
+import net.botwithus.rs3.game.Area;
 import net.botwithus.rs3.game.Client;
+import net.botwithus.rs3.game.Coordinate;
 import net.botwithus.rs3.game.Item;
 import net.botwithus.rs3.game.hud.interfaces.Component;
 import net.botwithus.rs3.game.hud.interfaces.Interfaces;
@@ -201,36 +203,48 @@ public class MultiSkillerLite extends LoopingScript {
     }
     private void bankPreset()
     {
-        SceneObject bank = SceneObjectQuery.newQuery().name("Bank chest").results().nearestTo(player);
-        if (bank == null)
-        {
-            println("Using Banker");
-            Npc bankNpc = NpcQuery.newQuery().option("Load Last Preset from").results().nearestTo(player);
-            if (bankNpc == null){
-                println("failed to find bank. Please move to banking area");
-                setBotState(BotState.Idle);
-            }
-            assert bankNpc != null;
-            bankNpc.interact("Load Last Preset from");
-            delay();
-        }
-        else {
-            println("Using Bank Chest");
-            bank.interact("Load Last Preset from");
-            delay(1000,1500);
-
-            if (player.isMoving())
+            Npc bankNpc;
+            SceneObject bank = SceneObjectQuery.newQuery().name("Bank chest").results().nearestTo(player);
+            if (bank == null)
             {
+                Coordinate ge_Spot = new Coordinate(3163,3484,0);
+                Area GE = new Area.Circular(ge_Spot,30);
+                if (GE.contains(player))
+                {
+                    println("At GE");
+                    bankNpc = NpcQuery.newQuery().option("Load Last Preset from").results().nearestTo(ge_Spot);
+                }else {
+                    println("Finding Banker");
+                    bankNpc = NpcQuery.newQuery().option("Load Last Preset from").results().nearestTo(player);
+                    if (bankNpc == null) {
+                        println("failed to find bank. Please move to banking area");
+                        setBotState(BotState.Idle);
+                    }
+                }
+                assert bankNpc != null;
+                bankNpc.interact("Load Last Preset from");
+                delay();
+                Execution.delayUntil( 15000, ()-> player.isMoving());
                 Execution.delayUntil( 15000, ()-> !player.isMoving());
             }
-        }
-        delay();
-        handleLogout();
-        if ((Client.getGameState() == Client.GameState.LOGGED_IN))
-        {
-            setBotState(returnState);
-        }
+            else {
+                println("Using Bank Chest");
+                bank.interact("Load Last Preset from");
+                delay(1500,2000);
+
+                if (player.isMoving())
+                {
+                    Execution.delayUntil( 15000, ()-> !player.isMoving());
+                }
+            }
+            delay();
+            handleLogout();
+            if ((Client.getGameState() == Client.GameState.LOGGED_IN))
+            {
+                setBotState(returnState);
+            }
     }
+
 
 
     public static void handleLogout()

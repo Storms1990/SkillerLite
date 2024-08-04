@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b1457f5-65e8-4d55-8f80-adb1ea7f124d" name="Changes" comment="Fixed error with using cooking portables.">
+    <list default="true" id="8b1457f5-65e8-4d55-8f80-adb1ea7f124d" name="Changes" comment="Updated Banking Logic to better run At GE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/botwithus/debug/MultiSkillerLite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721737413981</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Updated Banking Logic to better run At GE">
+      <option name="closed" value="true" />
+      <created>1722790335704</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722790335704</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,6 +341,7 @@
     <MESSAGE value="Fixed Banking not returning on family crest." />
     <MESSAGE value="Added make Unfinished potions." />
     <MESSAGE value="Fixed error with using cooking portables." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed error with using cooking portables." />
+    <MESSAGE value="Updated Banking Logic to better run At GE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Banking Logic to better run At GE" />
   </component>
 </project>
